@@ -1,0 +1,111 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "fetch_version": false
+          },
+          "template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})",
+          "foreground": "white",
+          "type": "python",
+          "style": "plain"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\u256d\u2500 ",
+          "foreground": "#c9cccd",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "<#f9b5ac>\uf2bd {{ .UserName }}</> <d><#73a7a7>on</></d> ",
+          "type": "session",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "style": "full"
+          },
+          "template": "\ue5ff {{ .Path }} ",
+          "foreground": "#b87ea2",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "template": "<#db6e89>::</> {{ .UpstreamIcon }} {{ .HEAD }}{{ if .Staging.Changed }}<#FF6F00> \uf046 {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "foreground": "#c9cccd",
+          "type": "git",
+          "style": "diamond"
+        },
+
+        {
+          "properties": {
+            "always_enabled": true
+          },
+          "template": " | {{ if gt .Code 0 }}\uf00d{{ else }}\uf00c{{ end }} | ",
+          "foreground_templates": ["{{ if gt .Code 0 }}#E44141{{ end }}"],
+          "foreground": "#4caf50",
+          "type": "status",
+          "style": "plain"
+        },
+        {
+          "foreground": "#73a7a7",
+          "properties": {
+            "style": "roundrock",
+            "threshold": 0
+          },
+          "style": "plain",
+          "template": "<d>\uf252 {{ .FormattedMs }}</d>",
+          "type": "executiontime"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "~",
+          "foreground": "#db6e89",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#ffffff",
+    "template": "~ "
+  },
+  "version": 3,
+  "final_space": true
+}
