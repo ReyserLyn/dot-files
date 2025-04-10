@@ -1,0 +1,1 @@
+-allow_third_party_software -panorama -high -novid -nosync  +cl_forcepreload 1 +exec autoexec.cfg +cl_interp 0.015625 +engine_low_latency_sleep_after_client_tick true
